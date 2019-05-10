@@ -1,0 +1,21 @@
+from numpy import *
+import os
+os.chdir('C:\\Users\\Wu Yucong\\Desktop')
+A = zeros((25,25),dtype=float)  #先创建一个 3x3的全零方阵A，并且数据的类型设置为float浮点型
+ 
+f = open('prac.xml')        #打开数据文件文件
+  # 逐行进行处理   
+for data in f.readlines():
+        ## 去掉每行的换行符，"\n"
+    data = data.strip('\n')
+    data = data.strip()
+    if data.startswith('<src id'):
+        data_lst = data.split('"')
+        src = int(data_lst[1])
+    if data.startswith('<dst id'):
+        data_lst = data.split('"')
+        dst = int(data_lst[1])
+        rate_lst = data_lst[2].split('<')
+        rate = float(rate_lst[0][1:])
+        A[src][dst] = rate
+print(A)
