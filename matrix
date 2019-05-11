@@ -1,8 +1,9 @@
-from numpy import *
+import numpy as np
 import os
-np.set_printoptions(suppress=True, threshold=np.nan)
+
+np.set_printoptions(suppress=True, threshold=np.inf)
 os.chdir('C:\\Users\\Wu Yucong\\Desktop')
-A = zeros((25,25),dtype=float)  #先创建一个 3x3的全零方阵A，并且数据的类型设置为float浮点型
+A = np.zeros((25,25),dtype=float)  #先创建一个 3x3的全零方阵A，并且数据的类型设置为float浮点型
  
 f = open('prac.xml')        #打开数据文件文件
   # 逐行进行处理   
